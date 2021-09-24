@@ -17,7 +17,7 @@ fn inner_wmi() {
 
 fn inner_wrt() {
     let before = std::time::Instant::now();
-    let pm = Windows::Management::Deployment::PackageManager::new().ok().unwrap();
+    let pm = Windows::Management::Deployment::PackageManager::new().unwrap();
     let iter = pm.FindPackages().ok().unwrap();
     for package in iter {
         let path = package.InstalledLocation().and_then(|v| v.Path());
